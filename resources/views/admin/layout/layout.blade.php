@@ -13,6 +13,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('adminLTE/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('adminLTE/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{ asset('adminLTE/plugins/toastr/toastr.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminLTE/dist/css/adminlte.min.css') }}">
 </head>
@@ -27,7 +32,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @include('admin.layout.components.main-sidebar')
 
     <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
     @yield('content')
+    </div>
     <!-- /.content-wrapper -->
 
     <!-- Control Sidebar -->
@@ -45,7 +52,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('adminLTE/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- Select2 -->
+<script src="{{ asset('adminLTE/plugins/select2/js/select2.full.min.js') }}"></script>
+<!-- Toastr -->
+<script src="{{ asset('adminLTE/plugins/toastr/toastr.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminLTE/dist/js/adminlte.min.js') }}"></script>
+<script>
+    toastr.options.escapeHtml = true;
+    toastr.options.closeButton = true;
+    toastr.options.closeMethod = 'fadeOut';
+    toastr.options.closeDuration = 30000;
+    toastr.options.closeEasing = 'swing';
+    toastr.options.progressBar = true;
+</script>
+@stack('custom-js')
 </body>
 </html>
