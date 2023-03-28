@@ -56,6 +56,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('adminLTE/plugins/select2/js/select2.full.min.js') }}"></script>
 <!-- Toastr -->
 <script src="{{ asset('adminLTE/plugins/toastr/toastr.min.js') }}"></script>
+<!-- TinyMCE -->
+<script src="{{ asset('libs/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminLTE/dist/js/adminlte.min.js') }}"></script>
 <script>
@@ -65,6 +67,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     toastr.options.closeDuration = 30000;
     toastr.options.closeEasing = 'swing';
     toastr.options.progressBar = true;
+
+    tinymce.init({
+        selector: '.tinymce',  // change this value according to your HTML
+        plugins: 'image, code, media, link, wordcount, table, searchreplace, preview, emoticons, lists, quickbars',
+        a_plugin_option: true,
+        a_configuration_option: 400,
+        toolbar: 'image code media link emoticons|wordcount|table numlist bullist|searchreplace preview',
+        quickbars_image_toolbar: true,
+    });
 </script>
 @stack('custom-js')
 </body>

@@ -67,4 +67,9 @@ class CategoryService extends BaseService
 
         return true;
     }
+
+    public function getChildrenCategories()
+    {
+        return Category::where('parent_id', '<>', 0)->get();
+    }
 }
