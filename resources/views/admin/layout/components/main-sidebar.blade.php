@@ -57,14 +57,28 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                <li class="nav-item @if (Route::is('products.*'))menu-is-opening menu-open @endif">
+                    <a href="{{ route('products.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Simple Link
-                            <span class="right badge badge-danger">New</span>
+                            Products
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('products.index') }}" class="nav-link @if (Route::is('products.index')) active @endif">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Product</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('products.create') }}" class="nav-link @if (Route::is('products.create')) active @endif">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Product</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
